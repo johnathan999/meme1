@@ -98,7 +98,7 @@ client.on('guildMemberRemove', member => {
   channel.send(`:outbox_tray: Aurevoir a bientot l'ami, ${member}`);
 });
 
-lient.on("guildCreate", guild => {
+client.on("guildCreate", guild => {
   // This event triggers when the bot joins a guild.
   console.log(`On m'a ajouter sur un serveur: ${guild.name} (id: ${guild.id}). Ce serveur a ${guild.memberCount} members!`);
   client.user.setActivity(`Serving ${client.guilds.size} servers`);
