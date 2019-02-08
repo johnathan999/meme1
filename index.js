@@ -14,6 +14,7 @@ const db = low(adapter);
 db.defaults({ histoires: [], xp: []}).write();
 var prefix = "ub!!";
 client.login(process.env.TOKEN);
+
 // Optional events
 dbl.on('posted', () => {
   console.log('Server count posted!');
@@ -333,12 +334,13 @@ client.on(`message`, message => {
         .addField("Humains:bust_in_silhouette:", message.guild.members.filter(member => !member.user.bot).size)
         .addField("Bots:robot:", message.guild.members.filter(member => member.user.bot).size)
         .addField("Activité des membres",':arrow_down:')
-        .addField("online", OnlineMember = message.guild.members.filter(utilisateurs => utilisateurs.presence.status === 'online').size)
-        .addField("idle", OnlineMember = message.guild.members.filter(utilisateurs => utilisateurs.presence.status === 'idle').size)
-        .addField("dnd", OnlineMember = message.guild.members.filter(utilisateurs => utilisateurs.presence.status === 'dnd').size)
-        .addField("offline", OnlineMember = message.guild.members.filter(utilisateurs => utilisateurs.presence.status === 'offline').size)
+        .addField("online:recycle:", OnlineMember = message.guild.members.filter(utilisateurs => utilisateurs.presence.status === 'online').size)
+        .addField("idle:large_orange_diamond:", OnlineMember = message.guild.members.filter(utilisateurs => utilisateurs.presence.status === 'idle').size)
+        .addField("dnd:red_circle:", OnlineMember = message.guild.members.filter(utilisateurs => utilisateurs.presence.status === 'dnd').size)
+        .addField("offline:white_circle:", OnlineMember = message.guild.members.filter(utilisateurs => utilisateurs.presence.status === 'offline').size)
         .addField("Nombre de categories et salons", message.guild.channels.size)
         .addField("Nombre de roles", message.guild.roles.size)
+        .addField("Nombres d'emojis", message.guild.emojis.size)
         .setFooter("Info - sur le serveur")
         .setTimestamp()
         message.channel.sendMessage(info_embed)
