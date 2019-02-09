@@ -201,8 +201,6 @@ client.on(`message`, message => {
         .addField("La commande :loudspeaker:d'annonce a été tranferé dans", ":gear:utilitaires.help :arrow_left:")
         .addField(":pencil:report.help", "Affiche l'aide pour la commande de report")
         .addField(":green_book:greeting.help","Affiche l'aide pour les messages de bienvenue/aurevoir")
-        .addField(":speech_left:Ce bot a une commandes speciale d'anti spam auto", "ne vous inquiéter plus d'etre spam par des gens ce bot possede un anti spam auto et si vous donnez la perm ban au bot elle pourras bannir le membre qui est en train de spam en quelques minutes sans aucune commandes a effectuer")
-        .addField(":speech_balloon: channellogs.help", "Affiche l'aide pour les logs des channels du bot")
         .setFooter("Menu d'aide - De tout les commandes")
         .setTimestamp()
         message.channel.sendMessage(help_embed);
@@ -303,20 +301,7 @@ client.on(`message`, message => {
       message.channel.sendMessage(help_embed);
       console.log("quelq'un a rejoin/quitter un serv")
     }
-
-    if(message.content === prefix + "channellogs.help"){
-      var help_embed = new Discord.RichEmbed()
-      .setColor("RANDOM")
-      .setTitle("Voici l'aide pour la commande :speech_balloon:channellogs.help")
-      .setThumbnail(message.author.avatarURL)
-      .addField("Vous devez cree un salon et nommer le logs", "pour avoir des logs sur des channels que vous créer")
-      .addField("Vous devez cree un salon et nommer le logs", "pour avoir des logs sur des channels que vous effacer")
-      .setFooter("logs ultra bot corporation")
-      .setTimestamp()
-      message.channel.sendMessage(help_embed);
-      console.log("logs envoyer dans le salon logs")
-    }
-    
+  
     if(message.content.startsWith(prefix + 'say')) { 
 
      if(message.channel.type === "dm") return;
