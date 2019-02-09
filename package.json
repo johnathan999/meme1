@@ -1,0 +1,31 @@
+{
+  "name": "ultrabot",
+  "version": "2.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jean0",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "anti": "^0.1.7",
+    "async": "^2.6.1",
+    "config.json": "0.0.4",
+    "dblapi.js": "^2.2.0",
+    "discord-anti-spam": "^1.1.6",
+    "discord.js": "^11.3.2",
+    "ffmpeg-binaries": "^3.2.2",
+    "fs-extra": "^6.0.1",
+    "lowdb": "^1.0.0",
+    "module.js": "^2.2.4",
+    "moment": "^2.24.0",
+    "ms": "^2.1.1",
+    "opusscript": "0.0.6",
+    "profanities": "^2.10.1",
+    "snekfetch": "^4.0.4",
+    "spam": "^0.2.8",
+    "weather.js": "^0.1.0",
+    "ytdl-core": "^0.20.4"
+  }
+}
