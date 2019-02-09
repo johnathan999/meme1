@@ -7,19 +7,6 @@ const settings = require("./settings.json");
 const DBL = require("dblapi.js");
 const dbl = new DBL(process.env.DBL, client);
 const Client = new Discord.Client();
-const antispam = require("discord-anti-spam"); //the main function for the anti spam
-
-
-antispam(client, {
-    warnBuffer: 3, //Maximum amount of messages allowed to send in the interval time before getting warned.
-    maxBuffer: 5, // Maximum amount of messages allowed to send in the interval time before getting banned.
-    interval: 1000, // Amount of time in ms users can send a maximum of the maxBuffer variable before getting banned.
-    warningMessage: "Salut, Spam pas. Ultra Bot a des fonctionnalité de anti spam. Vous allez etre ban auto si vous continuez.", // Warning message send to the user indicating they are going to fast.
-    banMessage: " a été banni pour spam. Ne testez pas l'anti spam D'Ultra Bot. Quelqu'un voudrait-il essayer?", // Ban message, always tags the banned user in front of it.
-    maxDuplicatesWarning: 7, // Maximum amount of duplicate messages a user can send in a timespan before getting warned
-    maxDuplicatesBan: 10, // Maximum amount of duplicate messages a user can send in a timespan before getting banned
-    deleteMessagesAfterBanForPastDays: 7 // Delete the spammed messages after banning for the past x days.
-});
 
 const adapter = new FileSync('database.json');
 const db = low(adapter);
