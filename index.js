@@ -8,7 +8,7 @@ const DBL = require("dblapi.js");
 const dbl = new DBL(process.env.DBL, client);
 const Client = new Discord.Client();
 const antispam = require("discord-anti-spam"); //the main function for the anti spam
-client.commands = new Discord.Collection();
+
 
 antispam(client, {
     warnBuffer: 3, //Maximum amount of messages allowed to send in the interval time before getting warned.
