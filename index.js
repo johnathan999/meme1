@@ -6,7 +6,7 @@ const FileSync = require('lowdb/adapters/FileSync');
 const settings = require("./settings.json");
 const DBL = require("dblapi.js");
 const dbl = new DBL(process.env.DBL, client);
-const moment = require('moment');
+const moment = require("moment");
 const Client = new Discord.Client();
 
 const adapter = new FileSync('database.json');
