@@ -977,7 +977,7 @@ if(!message.guild.member(message.author).hasPermission("MANAGE_GUILD")) return m
   var args = message.content.substring(prefix.length).split(" ");
 
     switch (args[0].toLowerCase()) {
-       case "statitiques":
+       //case "statitiques":
 
     var userCreateDate = message.author.createdAt.toString().split(" ");
     var msgauthor = message.author.id;
