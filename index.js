@@ -975,19 +975,8 @@ if(!message.guild.member(message.author).hasPermission("MANAGE_GUILD")) return m
   if (!message.content.startsWith(prefix)) return;
 
   switch (args[0].toLowerCase()) {
-       case "":
-
-    var userCreateDate = message.author.createdAt.toString().split(" ");
-    var msgauthor = message.author.id;
+    case "":
     var stats_embed = new Discord.RichEmbed()
-    .setColor()
-    .setTitle()
-    .addField()
-    .addField()
-    .setTimestamp()
-    .setThumbnail()
-    message.reply()
-    message.author.send({});
     break;  
      
         case "8ball":
