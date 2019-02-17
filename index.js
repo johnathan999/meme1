@@ -416,34 +416,6 @@ client.on(`message`, message => {
           }
       });
   }
-
-  if(message.content.startsWith(prefix + "slots")) {
-    if (!message.guild.member(client.user).hasPermission("SEND_MESSAGES")) return message.author.send("Je n'ai pas la permission d'envoyer des messages. Veuillez activer l'envoi de messages pour mon rôle.!");
-
-    let slots = ["🍎", "🍌", "🍒", "🍓", "🍈"];
-    let result1 = Math.floor((Math.random() * slots.length));
-    let result2 = Math.floor((Math.random() * slots.length));
-    let result3 = Math.floor((Math.random() * slots.length));
-    let name = message.author.displayName;
-    let aicon = message.author.displayAvatarURL;
-
-    if (slots[result1] === slots[result2] && slots[result3]) {
-        let wEmbed = new Discord.RichEmbed()
-            .setFooter("Tu as gagné!", aicon)
-            .setTitle(':slot_machine:Slots:slot_machine:')
-            .addField('Résultat:', slots[result1] + slots[result2] + slots[result3], true)
-            .setColor("RANDOM");
-        message.channel.send(wEmbed);
-    } else {
-        let embed = new Discord.RichEmbed()
-            .setFooter('Tu as perdu!', aicon)
-            .setTitle(':slot_machine:Slots:slot_machine:')
-            .addField('Résultat', slots[result1] + slots[result2] + slots[result3], true)
-            .setColor("RANDOM");
-        message.channel.send(embed);
-    }
-
-}
   
     if(message.content.startsWith(prefix + 'say')) { 
 
