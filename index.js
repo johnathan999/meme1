@@ -417,7 +417,7 @@ client.on(`message`, message => {
       });
   }
 
-  //if(message.content.startsWith(prefix + "slots")) {
+  if(message.content.startsWith(prefix + "slots")) {
     if (!message.guild.member(client.user).hasPermission("SEND_MESSAGES")) return message.author.send("Je n'ai pas la permission d'envoyer des messages. Veuillez activer l'envoi de messages pour mon rôle.!");
 
     let slots = ["🍎", "🍌", "🍒", "🍓", "🍈"];
@@ -972,12 +972,12 @@ if(!message.guild.member(message.author).hasPermission("MANAGE_GUILD")) return m
  
   }
 
-  //if (!message.content.startsWith(prefix)) return;
+  if (!message.content.startsWith(prefix)) return;
 
   var args = message.content.substring(prefix.length).split(" ");
 
     switch (args[0].toLowerCase()) {
-       //case "statitiques":
+       case "statitiques":
 
     var userCreateDate = message.author.createdAt.toString().split(" ");
     var msgauthor = message.author.id;
