@@ -418,7 +418,7 @@ client.on(`message`, message => {
       });
   }
 
-  if(message.content.startsWith(prefix + "stats")) {
+  if(message.content.startsWith(prefix + "")) {
     const membre = message.mentions.members.first() || message.member;
     //if(!membre) return message.channel.send(`Veuillez mentionner un utilisateur !`);
 
