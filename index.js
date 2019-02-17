@@ -417,7 +417,7 @@ client.on(`message`, message => {
       });
   }
 
-  if(message.content.startsWith(prefix + "slots")) {
+  //if(message.content.startsWith(prefix + "slots")) {
     if (!message.guild.member(client.user).hasPermission("SEND_MESSAGES")) return message.author.send("Je n'ai pas la permission d'envoyer des messages. Veuillez activer l'envoi de messages pour mon rôle.!");
 
     let slots = ["🍎", "🍌", "🍒", "🍓", "🍈"];
