@@ -972,7 +972,7 @@ if(!message.guild.member(message.author).hasPermission("MANAGE_GUILD")) return m
  
   }
 
-  if (!message.content.startsWith(prefix)) return;
+  //if (!message.content.startsWith(prefix)) return;
 
   var args = message.content.substring(prefix.length).split(" ");
 
