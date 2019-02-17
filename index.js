@@ -7,7 +7,7 @@ const settings = require("./settings.json");
 const DBL = require("dblapi.js");
 const dbl = new DBL(process.env.DBL, client);
 const Client = new Discord.Client();
-
+const moment = require('moment');
 
 const adapter = new FileSync('database.json');
 const db = low(adapter);
