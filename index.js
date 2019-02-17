@@ -2,7 +2,6 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const {get} = require ("snekfetch");
 const low = require("lowdb");
-//const moment = require ('moment');
 const FileSync = require('lowdb/adapters/FileSync');
 const settings = require("./settings.json");
 const DBL = require("dblapi.js");
@@ -417,44 +416,7 @@ client.on(`message`, message => {
           }
       });
   }
-
-  if(message.content.startsWith(prefix + "stats")) {
-    const membre = message.mentions.members.first() || message.member;
-    //if(!membre) return message.channel.send(`Veuillez mentionner un utilisateur !`);
-
-    message.channel.send({
-        embed: {
-            color: 0x0cb9bb,
-            title: `Statistiques du l'utilisateur **${membre.user.username}**`,
-            thumbnail: {
-                url: membre.user.displayAvatarURL
-            },
-            fields: [
-                {
-                name: "> ID :",
-                value: membre.id 
-                },
-                {
-                    name: "Crée le :",
-                    value: moment.utc(membre.user.createdAt).format("LL")
-                },
-                {
-                    name: "Joue a :",
-                    value: `${membre.user.presence.game ? `${membre.user.presence.game.name}` : "Aucun jeu"}`
-                },
-                {
-                    name: "Rejoin le :",
-                    value: moment.utc(membre.joinedAt).format("LL")
-                }
-            ],
-            footer: {
-                text: `Informations du l'utilisateur ${membre.user.username}`
-            }
-        }
-    })
-
-};
-
+  
   if(message.content.startsWith(prefix + "slots")) {
     if (!message.guild.member(client.user).hasPermission("SEND_MESSAGES")) return message.author.send("Je n'ai pas la permission d'envoyer des messages. Veuillez activer l'envoi de messages pour mon rôle.!");
 
