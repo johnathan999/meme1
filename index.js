@@ -115,6 +115,28 @@ client.on("guildDelete", guild => {
   client.user.setActivity(`Serving ${client.guilds.size} servers`);
 });
 
+client.on("channelCreate", async channel => {
+	var logs = channel.guild.channels.find(c => c.name === 'logs');
+	if (!logs) return console.log("Impossible de trouver le salon de logs.");
+	const cembed = new Discord.RichEmbed()
+		.setTitle("Salon créée")
+		.setColor("RANDOM")
+		.setDescription(`Un **${channel.type} salon**, par le nom de **${channel.name}**, vient d'être créé!`)
+		.setTimestamp(new Date());
+	logs.send(cembed)
+});
+
+client.on("channelDelete", async channel => {
+	var logs = channel.guild.channels.find(c => c.name === 'logs');
+	if (!logs) return console.log("Impossible de trouver le salon de logs.");
+	const cembed = new Discord.RichEmbed()
+		.setTitle("Salon supprimée")
+		.setColor("RANDOM")
+		.setDescription(`Un **${channel.type} salon**, par le nom de **${channel.name}**, vient d'être supprimé!`)
+		.setTimestamp(new Date())
+	logs.send(cembed)
+});
+
 client.on("message", (message) => {
       
     if(message.content.startsWith(prefix + "sondage"))  {
@@ -208,6 +230,7 @@ client.on(`message`, message => {
         .addField(":heavy_minus_sign:help.removerole", "Affiche l'aide pour le removerole d'Ultra Bot")
         .addField(":arrow_heading_up:ub!!update","Affiche les mise a jour du bot")
         .addField(":notepad_spiral:ub!!help.roleinfo", "Affiche l'aide pour le roleinfo du bot")
+        .addField(":notebook:ub!!logs.help", "Affiche l'aide pour les channel logs d'Ultra Bot")
         .setFooter("Menu d'aide - De tout les commandes")
         .setTimestamp()
         message.channel.sendMessage(help_embed);
@@ -253,6 +276,7 @@ client.on(`message`, message => {
       .addField("ub!!smoke", "Permez au bot de fumer une cigarette")
       .addField("ub!!coinflip", "Vous permez de jouer a heads et tails avec une pièce")
       .addField("ub!!flip", "Je vous laisse découvrir ^^")
+      .addField("ub!!roulette", "Une version améliorer du slots ^^")
       .setFooter("Menu d'aide - fun")
       .setTimestamp()
       message.channel.sendMessage(help_embed);
@@ -270,6 +294,7 @@ client.on(`message`, message => {
       .addField("ub!!serverlist", "Affiche tout les serveurs que je fait partie et le nombre de membres des serveurs")
       .addField("ub!!sondage", "Vous devez d'ecrire votre sondage et le bot le fait a votre place")
       .addField("ub!!annonce", "vous voulez faire une annonce urgente faite cet commande(ub!!annoce + votre annonce)")
+      .addField("ub!!monid", "Si vous connaissez pas votre id faite cette commande `ub!!monid`")
       .setFooter("Menu d'aide - utilitaires")
       .setTimestamp()
       message.channel.sendMessage(help_embed);
@@ -351,6 +376,19 @@ client.on(`message`, message => {
       console.log("quelq'un a utilier la commande de roleinfo")
     }
 
+    if(message.content === prefix + "logs.help"){
+      var help_embed = new Discord.RichEmbed()
+      .setColor("RANDOM")
+      .setTitle("Voici l'aide pour la commande :notebook:logs.help")
+      .setThumbnail(message.author.avatarURL)
+      .addField("Creer un salon et nommer le logs", "Pour recevoir les logs sur les salons que vous créé")
+      .addField("creer un salon et nommer logs", "Pour recevoir les logs sur les salons que vous supprimé")
+      .setFooter("Ultra Bot channel logs corporation")
+      .setTimestamp()
+      message.channel.sendMessage(help_embed);
+      console.log("quelq'un a effectuer la commande de logs.help")
+    }
+
     if(message.content === prefix + "update"){
       var help_embed = new Discord.RichEmbed()
       .setColor("RANDOM")
@@ -366,6 +404,9 @@ client.on(`message`, message => {
       .addField("smoke", "Permez au bot de fumer une cigarette")
       .addField("coinflip", "Vous permez de jouer a heads et tails avec une pièce grace a une commande")
       .addField("flip", "Je vous laisse découvrir ^^")
+      .addField("monid", "Le bot vous donne votre id")
+      .addField("roulette", "Une version améliorer du slots")
+      .addField("logs.help", "Affiche l'aide pour le channel logs du bot")
       .setFooter(`Les mise a jours du bot ${message.author.username}`)
       .setTimestamp()
       message.channel.sendMessage(help_embed);
@@ -451,7 +492,83 @@ client.on(`message`, message => {
     }
 
 }
-  
+
+if(message.content.startsWith(prefix + "monid")) {
+  message.channel.send(`Votre identifiant est: ${message.author.id}`)
+}
+
+if (message.content === prefix + "roulette") {
+  var replys1 = [
+      ":gem: : :gem: : :gem: ",
+      ":lemon: : :lemon: : :lemon: ",
+      ":seven: : :seven: : :seven: ",
+      ":bell: : :bell: : :bell:",
+      ":cherries: : :cherries: : :cherries: ",
+      ":star: : :star: : :star: ",
+      ":gem: : :star: : :seven: ",
+      ":star: : :bell: : :bell:",
+      ":star: : :star: : :cherries: ",
+      ":gem: : :gem: : :cherries:",
+      ":gem: : :seven: : :seven: ",
+      ":star: : :bell: : :lemon: ",
+      ":star: : :star: : :cherries: ",
+      ":seven: : :star: : :star: ",
+      ":star: : :star: : :seven: ",
+      ":gem: : :gem: : :seven: "
+  ];
+  let reponse = (replys1[Math.floor(Math.random() * replys1.length)])
+
+  var replys2 = [
+      ":gem: : :gem: : :gem: ",
+      ":lemon: : :lemon: : :lemon: ",
+      ":seven: : :seven: : :seven: ",
+      ":bell: : :bell: : :bell:",
+      ":cherries: : :cherries: : :cherries: ",
+      ":gem: : :star: : :seven: ",
+      ":star: : :bell: : :bell:",
+      ":star: : :star: : :cherries: ",
+      ":gem: : :gem: : :cherries:",
+      ":gem: : :seven: : :seven: ",
+      ":star: : :bell: : :lemon: ",
+      ":star: : :star: : :cherries: ",
+      ":seven: : :star: : :star: ",
+      ":star: : :star: : :seven: ",
+      ":gem: : :gem: : :seven: ",
+      ":gem: : :cherries: : :cherries:",
+      ":gem: : :bell: : :star:"
+  ];
+  let reponse2 = (replys2[Math.floor(Math.random() * replys2.length)])
+  var replys3 = [
+      ":lemon: : :lemon: : :lemon: ",
+      ":bell: : :bell: : :bell:",
+      ":cherries: : :cherries: : :cherries: ",
+      ":star: : :star: : :star: ",
+      ":gem: : :star: : :seven: ",
+      ":star: : :bell: : :bell:",
+      ":star: : :star: : :cherries: ",
+      ":gem: : :gem: : :cherries:",
+      ":gem: : :seven: : :seven: ",
+      ":star: : :bell: : :lemon: ",
+      ":star: : :star: : :cherries: ",
+      ":seven: : :star: : :star: ",
+      ":star: : :star: : :seven: ",
+      ":gem: : :gem: : :seven: "
+  ];
+  let reponse3 = (replys3[Math.floor(Math.random() * replys3.length)])
+  let aicon = message.author.displayAvatarURL;
+
+  const embed = new Discord.RichEmbed()
+      .setColor("RANDOM")
+      .setTitle(`**[ :slot_machine: @${message.author.tag} a lancé la machine à sous ! :slot_machine: ]**`)
+      .addField("**-------------------**", "** **")
+      .addField(`${reponse} \n \n${reponse2}**<** \n \n${reponse3}`, `** **`)
+      .addField("**-------------------**", "** **")
+      .setTimestamp()
+      .setFooter("Tu as eu comme ça résultat (voir en haut) !", aicon)
+      .setDescription("** **")
+  message.channel.send(embed)
+}
+
 if(message.content.startsWith(prefix + 'flip')) {
   var result = Math.floor((Math.random() * 2) + 1);
   if (result == 1) {
