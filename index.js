@@ -6,7 +6,7 @@ const FileSync = require('lowdb/adapters/FileSync');
 const antispam = require("discord-anti-spam"); // Requiring this module.
 const settings = require("./settings.json");
 const DBL = require("dblapi.js");
-const dbl = new DBL('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ1MDQ0OTQzMzM0NDM0NDA2NCIsImJvdCI6dHJ1ZSwiaWF0IjoxNTM1OTMzNjQwfQ.7lcFDOm30a-d-GhCt2rULUvz4eZn-ZBQCg4SgXA6SI8', client);
+const dbl = new DBL(process.env.DBL, client);
 const Client = new Discord.Client();
 
 
@@ -15,7 +15,7 @@ const db = low(adapter);
 
 db.defaults({ histoires: [], xp: []}).write();
 var prefix = "ub!!";
-client.login("NDUwNDQ5NDMzMzQ0MzQ0MDY0.D00AcQ.h3YMoo8NtQaZDjJL-v02450dX9U");
+client.login(process.env.TOKEN);
 
 // Optional events
 dbl.on('posted', () => {
