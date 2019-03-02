@@ -1,2 +1,0 @@
-# meme1
-meme
